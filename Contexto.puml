@@ -1,0 +1,31 @@
+@startuml C4_Elements
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Context.puml
+!define C4Context
+
+!include <C4/C4_Context>
+!include <C4/C4_Container>
+
+Person(person, "Usuário", "Admin / Comum")
+System(system, "Sistema login da prefeitura", "Sistema que provém o login para todas as secretarias")
+
+System(external_system, "Sistema da secretaria de transporte", "Responsável pela gerencia da secretaria")
+
+System_Ext(external_system_2, "Sistema da secretaria de educação", "Responsável pela gerencia da secretaria")
+
+System_Ext(external_system_3, "Sistema da secretaria de saúde", "Responsável pela gerencia da secretaria")
+
+System_Ext(external_system_4, "Sistema da secretaria de cultura", "Responsável pela gerencia da secretaria")
+
+
+Rel(person, system, "Usa", "HTTPS")
+
+Rel(system, external_system, "Envia token do usuário logado via", "HTTP")
+' Rel(external_system, person, "Usa", "(http)")
+
+Rel(system, external_system_2, "Envia token do usuário logado via", "HTTP")
+
+Rel(system, external_system_3, "Envia token do usuário logado via", "HTTP")
+
+Rel(system, external_system_4, "Envia token do usuário logado via", "HTTP")
+
+@enduml
