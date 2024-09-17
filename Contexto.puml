@@ -16,6 +16,9 @@ System_Ext(external_system_3, "Sistema da secretaria de saúde", "Responsável p
 
 System_Ext(external_system_4, "Sistema da secretaria de cultura", "Responsável pela gerencia da secretaria")
 
+System_Ext(external_system_5, "Sistema de login social Google", "Responsável pelo login sem senha e de forma mais rápida")
+
+
 
 Rel(person, system, "Usa", "HTTPS")
 
@@ -27,5 +30,9 @@ Rel(system, external_system_2, "Envia token do usuário logado via", "HTTP")
 Rel(system, external_system_3, "Envia token do usuário logado via", "HTTP")
 
 Rel(system, external_system_4, "Envia token do usuário logado via", "HTTP")
+
+Rel(external_system_5, system,"Envia o usuário da conta Google selecionado")
+
+Rel(system, external_system_5,"Redireciona o usuário para fazer login")
 
 @enduml
